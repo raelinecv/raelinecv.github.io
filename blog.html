@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Raeline Valbuena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #F52549;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid #F52549;
+        }
+        
+        .page-header h1 {
+            color: #F52549;
+        }
+        
+        /* Substack Banner */
+        .substack-banner {
+            background-color: #F52549;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .substack-banner h2 {
+            color: white;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+        
+        .substack-banner p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .substack-link {
+            display: inline-block;
+            background-color: white;
+            color: #F52549;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .substack-link:hover {
+            background-color: #FFD54D;
+            color: #333;
+            transform: translateY(-2px);
+        }
+        
+        /* Section Styling */
+        section {
+            margin-bottom: 5rem;
+        }
+        
+        section h2 {
+            color: #F52549;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #F52549;
+        }
+        
+        /* Blog Items */
+        .blog-item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .blog-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Image left layout */
+        .blog-item.image-left {
+            flex-direction: row;
+        }
+        
+        /* Image right layout */
+        .blog-item.image-right {
+            flex-direction: row-reverse;
+        }
+        
+        .blog-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .blog-content {
+            flex: 1;
+        }
+        
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .blog-excerpt {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more-btn {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            color: #fff;
+            background-color: #F52549;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .read-more-btn:hover {
+            background-color: #d41f3d;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid #FFD54D;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+            
+            nav a {
+                font-size: 0.85rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 6rem 1.5rem 2rem;
+            }
+            
+            .blog-item,
+            .blog-item.image-left,
+            .blog-item.image-right {
+                flex-direction: column;
+            }
+            
+            .blog-image {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .substack-banner {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="writing.html">Publications</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>Blog</h1>
+        </header>
+
+        <!-- Substack Banner -->
+        <div class="substack-banner">
+            <h2>Read More on Substack</h2>
+            <p>Follow my latest writing, analysis, and insights on genetics, science communication, and more.</p>
+            <a href="https://yoursubstack.substack.com" class="substack-link" target="_blank" rel="noopener noreferrer">Visit My Substack →</a>
+        </div>
+
+        <!-- Blog Posts Section -->
+        <section id="blog-posts">
+            <h2>Recent Posts</h2>
+            
+            <article class="blog-item image-left">
+                <div class="blog-image">
+                    [Placeholder Image 1]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="blog-content">
+                    <h3>The Future of Genetic Medicine</h3>
+                    <p class="blog-meta">Blog Post • January 15, 2024</p>
+                    <p class="blog-excerpt">
+                        Exploring the intersection of genetics and personalized medicine, and what the next decade might hold for therapeutic innovations in this rapidly evolving field.
+                    </p>
+                    <a href="https://yoursubstack.substack.com/post1" class="read-more-btn" target="_blank" rel="noopener noreferrer">Read on Substack</a>
+                </div>
+            </article>
+
+            <article class="blog-item image-right">
+                <div class="blog-image">
+                    [Placeholder Image 2]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="blog-content">
+                    <h3>Communicating Complex Science</h3>
+                    <p class="blog-meta">Blog Post • December 20, 2023</p>
+                    <p class="blog-excerpt">
+                        Reflections on the challenges and rewards of translating technical scientific concepts into clear, accessible writing for diverse audiences.
+                    </p>
+                    <a href="https://yoursubstack.substack.com/post2" class="read-more-btn" target="_blank" rel="noopener noreferrer">Read on Substack</a>
+                </div>
+            </article>
+
+            <article class="blog-item image-left">
+                <div class="blog-image">
+                    [Placeholder Image 3]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="blog-content">
+                    <h3>Behind the Regulatory Process</h3>
+                    <p class="blog-meta">Blog Post • November 5, 2023</p>
+                    <p class="blog-excerpt">
+                        An inside look at what goes into creating regulatory documentation and why clear, precise writing matters in bringing new therapies to patients.
+                    </p>
+                    <a href="https://yoursubstack.substack.com/post3" class="read-more-btn" target="_blank" rel="noopener noreferrer">Read on Substack</a>
+                </div>
+            </article>
+
+            <article class="blog-item image-right">
+                <div class="blog-image">
+                    [Placeholder Image 4]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="blog-content">
+                    <h3>CRISPR in the Clinic</h3>
+                    <p class="blog-meta">Blog Post • October 12, 2023</p>
+                    <p class="blog-excerpt">
+                        A deep dive into recent clinical applications of CRISPR technology and the ethical considerations that come with genome editing in medical practice.
+                    </p>
+                    <a href="https://yoursubstack.substack.com/post4" class="read-more-btn" target="_blank" rel="noopener noreferrer">Read on Substack</a>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Raeline Valbuena. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Raeline Valbuena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #F52549;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid #FFD54D;
+        }
+        
+        .page-header h1 {
+            color: #F52549;
+        }
+        
+        /* Section Styling */
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 6rem;
+        }
+        
+        /* Gene Regulation Section - Green Theme */
+        #gene-regulation h2 {
+            color: #99BE1B;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #99BE1B;
+        }
+        
+        #gene-regulation .download-btn {
+            background-color: #99BE1B;
+        }
+        
+        #gene-regulation .download-btn:hover {
+            background-color: #7a9816;
+        }
+        
+        /* CRISPR Technologies Section - Yellow Theme */
+        #crispr-technologies h2 {
+            color: #997a00;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #FFD54D;
+        }
+        
+        #crispr-technologies .download-btn {
+            background-color: #FFD54D;
+            color: #333;
+        }
+        
+        #crispr-technologies .download-btn:hover {
+            background-color: #e6c044;
+        }
+        
+        /* Publication Items */
+        .publication-item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Image left layout */
+        .publication-item.image-left {
+            flex-direction: row;
+        }
+        
+        /* Image right layout */
+        .publication-item.image-right {
+            flex-direction: row-reverse;
+        }
+        
+        .publication-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .publication-content {
+            flex: 1;
+        }
+        
+        .publication-meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .publication-excerpt {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .download-btn {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid #FFD54D;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+            
+            nav a {
+                font-size: 0.85rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 6rem 1.5rem 2rem;
+            }
+            
+            .publication-item,
+            .publication-item.image-left,
+            .publication-item.image-right {
+                flex-direction: column;
+            }
+            
+            .publication-image {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="writing.html">Publications</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>Publications</h1>
+        </header>
+
+        <!-- Gene Regulation Section -->
+        <section id="gene-regulation">
+            <h2>Gene Regulation</h2>
+            
+            <article class="publication-item image-left">
+                <div class="publication-image">
+                    [Placeholder Image 1]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="publication-content">
+                    <h3>Epigenetic Mechanisms in Mammalian Development</h3>
+                    <p class="publication-meta">Research Article • Journal of Molecular Biology • 2024</p>
+                    <p class="publication-excerpt">
+                        This study explores the intricate epigenetic mechanisms that regulate gene expression during mammalian development, with particular focus on histone modifications and DNA methylation patterns.
+                    </p>
+                    <a href="epigenetic-mechanisms.pdf" class="download-btn" download>Download PDF</a>
+                </div>
+            </article>
+
+            <article class="publication-item image-right">
+                <div class="publication-image">
+                    [Placeholder Image 2]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="publication-content">
+                    <h3>Transcriptional Control in Stem Cell Differentiation</h3>
+                    <p class="publication-meta">Review Article • Cell Biology Reports • 2023</p>
+                    <p class="publication-excerpt">
+                        A comprehensive review of transcription factor networks and their role in directing stem cell fate decisions, including regulatory mechanisms and therapeutic implications.
+                    </p>
+                    <a href="transcriptional-control.pdf" class="download-btn" download>Download PDF</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- CRISPR Technologies Section -->
+        <section id="crispr-technologies">
+            <h2>CRISPR Technologies</h2>
+            
+            <article class="publication-item image-left">
+                <div class="publication-image">
+                    [Placeholder Image 3]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="publication-content">
+                    <h3>CRISPR-Cas9 Applications in Gene Therapy</h3>
+                    <p class="publication-meta">Research Article • Gene Therapy Journal • 2024</p>
+                    <p class="publication-excerpt">
+                        An examination of recent advances in CRISPR-Cas9 technology for therapeutic applications, including delivery methods, off-target effects, and clinical trial outcomes.
+                    </p>
+                    <a href="crispr-gene-therapy.pdf" class="download-btn" download>Download PDF</a>
+                </div>
+            </article>
+
+            <article class="publication-item image-right">
+                <div class="publication-image">
+                    [Placeholder Image 4]
+                    <br>
+                    <small>200x200</small>
+                </div>
+                <div class="publication-content">
+                    <h3>Base Editing: Precision Genome Modification</h3>
+                    <p class="publication-meta">Technical Review • Nature Biotechnology • 2023</p>
+                    <p class="publication-excerpt">
+                        This review discusses base editing technologies as precision tools for genome modification, comparing efficacy with traditional CRISPR approaches and exploring future directions.
+                    </p>
+                    <a href="base-editing.pdf" class="download-btn" download>Download PDF</a>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Raeline Valbuena. All rights reserved.</p>
+    </footer>
+</body>
+</html>
